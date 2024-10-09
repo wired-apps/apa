@@ -2589,6 +2589,7 @@
       animation: spinner 0.7s linear infinite;
     }
     
+    
     @keyframes spinner{
       from{}
       to{
@@ -2605,6 +2606,10 @@
     .amount-placeholder::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: #ff2343;
       opacity: 1; /* Firefox */
+    }
+
+    .anonymous-donation:hover{
+      cursor: pointer;
     }
     
     #cover-spin {
@@ -3289,7 +3294,7 @@
                   </div-->
                   <div class="wrapper-5bi"></div>
                   <div class="wrapper-5bi">
-                    <div class="field-zcb checkbox-n1l"><label for="anonymous"><input type="checkbox" name="anonymous" id="is-anonymous" onclick="setAnonymousData();" /><span class="field-lot" onclick="setAnonymousText()">Keep my donation anonymous</span></label></div>
+                    <div class="field-zcb checkbox-n1l anonymous-donation" ><label for="anonymous"><input type="checkbox" name="anonymous" id="is-anonymous" onclick="setAnonymousData();" /><span class="field-lot" onclick="setAnonymousText()">Keep my donation anonymous</span></label></div>
                   </div>
                   <p class="message-svm">Donating <b>$</b><b class="totalAmount">2.75</b><span class="donating-in"></span></p>
                   <div class="form-i4o">
