@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Request Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .receipt-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 610px;
+            width: 100%;
+        }
+        .receipt-container h1 {
+            margin: 0 0 20px;
+            font-size: 24px;
+        }
+        .receipt-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .success {
+            color: green;
+        }
+        .failed {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <h1 id="header-message"></h1>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get the result parameter from the URL
+        var result = getUrlParameter('result');
+
+        // Get the header
+        var header = document.getElementById('header-message');
+        
+        // Get the message paragraph
+        var messageParagraph = document.getElementById('message');
+
+        // Display the appropriate message based on the result parameter
+        if(result === 'Success') {
+            header.textContent = 'Membership request submitted successfully!';
+            messageParagraph.textContent = 'Thank you for applying for membership. Our team is currently reviewing your request. You will be notified once we have processed your application. If approved, we will set up your subscription. Otherwise, we will inform you of the decision.';
+            messageParagraph.classList.add('success');
+        } else if(result === 'Failed') {
+            header.textContent = 'Membership request submission failed.';
+            messageParagraph.textContent = 'Thank you for applying for membership. Unfortunately, your request could not be processed at this time. Please review the details of your submission and try again. If you have any questions, feel free to contact our support team for assistance.';
+            messageParagraph.classList.add('failed');
+        } else {
+            header.textContent = 'Membership request submission failed.';
+            messageParagraph.textContent = result;
+            messageParagraph.classList.add('failed');
+        }
+    </script>
+</body>
+</html>
