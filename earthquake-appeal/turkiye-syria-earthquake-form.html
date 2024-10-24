@@ -1568,6 +1568,23 @@
                 
             });
         }
+
+        function ifOrganisationDonation(){
+            var orgName = document.getElementById().value;
+            if(orgName != undefined && orgName.length() > 0){
+                document.getElementById('street').name='billingstreet'
+                document.getElementById('country').name='billingcountry'
+                document.getElementById('postal_code').name='billingcountry'
+                document.getElementById('city').name='billingcity'
+                document.getElementById('state').name='billingstate'
+            }else{
+                document.getElementById('street').name='mailingstreet'
+                document.getElementById('country').name='mailingcountry'
+                document.getElementById('postal_code').name='mailingcountry'
+                document.getElementById('city').name='mailingcity'
+                document.getElementById('state').name='mailingstate'
+            }
+        }
         
         
         function getShortAddressObject(object) {
@@ -2180,7 +2197,7 @@
                                         <div class="form-group-19l">
                                             If you are donating on behalf of an organisation.
                                             <span style="display: block;"></span>
-                                            <input type="text" name="organisationName" class="form-control-te5" id="organisationName" placeholder="Organisation Name" onblur="onFocusLeft('organisationName')" onfocus="removeOutline('organisationName')"/>
+                                            <input type="text" name="organisationName" class="form-control-te5" id="organisationName" placeholder="Organisation Name" onchange="ifOrganisationDonation();" onblur="onFocusLeft('organisationName')" onfocus="removeOutline('organisationName')"/>
                                         </div>
                                         <div class="">
                                             Find your address
