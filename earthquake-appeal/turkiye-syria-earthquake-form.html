@@ -1572,7 +1572,7 @@
         function ifOrganisationDonation(){
             var orgName = document.getElementById("organisationName").value;
             console.log('ORGANISATIOn ===> '+orgName);
-            if(orgName != undefined && orgName.length > 0){
+            if(orgName != undefined && orgName != null && orgName.trim().length > 0){
                 document.getElementById('street').name='billingstreet'
                 document.getElementById('country').name='billingcountry'
                 document.getElementById('postal_code').name='billingpostalcode'
